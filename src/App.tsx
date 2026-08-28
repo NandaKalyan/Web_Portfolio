@@ -1,5 +1,3 @@
-// File: src/App.tsx
-
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import {
   ArrowDownRight, ArrowUpRight, Check, ChevronRight, Code2,
@@ -42,10 +40,15 @@ const skillGroups = [
   ['Other Technologies', 'REST APIs', 'GitHub API', 'OAuth', 'Speech Recognition', 'Text-to-Speech', 'Android SDK', 'AI-assisted development', 'Software Testing'],
 ];
 
+const groupSections: { key: ProjectGroup; label: string; description: string }[] = [
+  { key: 'Main', label: 'Core Projects', description: 'Full-stack builds and larger applications with real end-to-end functionality.' },
+  { key: 'Mini', label: 'Micro Projects', description: 'Smaller, focused builds — single-purpose tools and utilities.' },
+  { key: 'Spark', label: 'Spark Projects', description: 'Things I built purely out of curiosity or inspiration.' },
+];
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeGroup, setActiveGroup] = useState<ProjectGroup>('Main');
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [cursor, setCursor] = useState({ x: -100, y: -100, label: '' });
@@ -53,13 +56,20 @@ function App() {
   const [formState, setFormState] = useState<{ name: string; email: string; subject: string; message: string }>({ name: '', email: '', subject: '', message: '' });
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const filters = ['All', 'Java', 'Full Stack', 'React', 'JavaScript', 'Python', 'Android', 'AI', 'API'];
-  const groupLabels: { key: ProjectGroup; label: string }[] = [
-    { key: 'Main', label: 'Core Projects' },
-    { key: 'Mini', label: 'Micro Projects' },
-    { key: 'Spark', label: 'Spark Projects' },
-  ];
-  const groupedProjects = useMemo(() => projects.filter((project) => project.group === activeGroup), [activeGroup]);
-  const visibleProjects = useMemo(() => activeFilter === 'All' ? groupedProjects : groupedProjects.filter((project) => project.category === activeFilter || project.tags.includes(activeFilter) || (activeFilter === 'API' && project.tags.includes('REST API'))), [activeFilter, groupedProjects]);
+
+  const matchesFilter = (project: Project) =>
+    activeFilter === 'All' ||
+    project.category === activeFilter ||
+    project.tags.includes(activeFilter) ||
+    (activeFilter === 'API' && project.tags.includes('REST API'));
+
+  const groupedByFilter = useMemo(() => {
+    const result: Record<ProjectGroup, Project[]> = { Main: [], Mini: [], Spark: [] };
+    projects.forEach((project) => {
+      if (matchesFilter(project)) result[project.group].push(project);
+    });
+    return result;
+  }, [activeFilter]);
 
   useEffect(() => {
     const timeout = window.setTimeout(() => setLoading(false), 900);
@@ -119,7 +129,54 @@ function App() {
 
         <section id="journey" className="section-pad journey-section"><div className="section-heading"><span className="section-number">03 / BACKGROUND</span><h2>The path so far.</h2></div><div className="timeline"><div className="timeline-item"><div className="timeline-meta">2024 — 2025<br /><span>TRAINING</span></div><div className="timeline-line"><span /></div><div className="timeline-content"><h3>Tap Academy</h3><p>Java Full Stack Development</p><small>Java · Advanced Java · SQL · React · Spring · Hibernate · Full Stack Development</small></div></div><div className="timeline-item"><div className="timeline-meta">2023<br /><span>INTERNSHIP</span></div><div className="timeline-line"><span /></div><div className="timeline-content"><h3>Prinston Smart Engineers</h3><p>Full Stack Development Intern</p></div></div><div className="timeline-item"><div className="timeline-meta">2020 — 2024<br /><span>EDUCATION</span></div><div className="timeline-line"><span /></div><div className="timeline-content"><h3>Global Academy of Technology</h3><p>Bachelor of Engineering · Information Science and Engineering</p><small>CGPA: 8.94</small></div></div></div><div className="dsa-panel"><div><span className="section-number">A PRACTICE IN PROGRESS</span><strong>150<span>+</span></strong><p>DSA problems solved</p></div><div className="dsa-copy"><Terminal size={21} /><p>Practiced Data Structures and Algorithms with a focus on logical problem solving and Java-based implementation.</p></div></div></section>
 
-        <section id="projects" className="section-pad projects-section"><div className="section-heading split-heading"><div><span className="section-number">04 / SELECTED WORK</span><h2>Things I've<br /><em>built in the wild.</em></h2></div><p>A collection of applications built across full-stack development, AI-assisted tooling, mobile development, APIs, databases and frontend engineering.</p></div><div className="group-row">{groupLabels.map(({ key, label }) => <button key={key} className={activeGroup === key ? 'active' : ''} onClick={() => { setActiveGroup(key); setActiveFilter('All'); }}>{label}</button>)}</div><div className="filter-row">{filters.map((filter) => <button key={filter} className={activeFilter === filter ? 'active' : ''} onClick={() => setActiveFilter(filter)}>{filter}</button>)}</div><div className="project-grid">{visibleProjects.map((project, index) => <article className="project-card" key={project.title} onClick={() => setSelectedProject(project)} onMouseEnter={() => setCursor((current) => ({ ...current, label: 'VIEW' }))} onMouseLeave={() => setCursor((current) => ({ ...current, label: '' }))}><div className={`project-art tint-${project.tint}`}><img src={project.image} alt={`${project.title} screenshot`} loading="lazy" /><span className="art-index">0{index + 1}</span><span className="art-overlay" /></div><div className="project-info"><div className="project-topline"><span>{project.category}</span><span>{String(index + 1).padStart(2, '0')} / 11</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><div className="project-links"><a href={project.githubUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()} onMouseEnter={() => setCursor((current) => ({ ...current, label: 'GITHUB ↗' }))} onMouseLeave={() => setCursor((current) => ({ ...current, label: 'VIEW' }))}><Github size={15} /> GitHub</a>{project.liveDemoUrl && <a href={project.liveDemoUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}><ExternalLink size={15} /> Live Demo</a>}{project.demoVideoUrl && <a href={project.demoVideoUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}><Play size={14} /> Demo Video</a>}</div></div></article>)}</div></section>
+        <section id="projects" className="section-pad projects-section">
+          <div className="section-heading split-heading">
+            <div><span className="section-number">04 / SELECTED WORK</span><h2>Things I've<br /><em>built in the wild.</em></h2></div>
+            <p>A collection of applications built across full-stack development, AI-assisted tooling, mobile development, APIs, databases and frontend engineering.</p>
+          </div>
+          <div className="filter-row">{filters.map((filter) => <button key={filter} className={activeFilter === filter ? 'active' : ''} onClick={() => setActiveFilter(filter)}>{filter}</button>)}</div>
+
+          {groupSections.map(({ key, label, description }) => {
+            const groupProjects = groupedByFilter[key];
+            if (groupProjects.length === 0) return null;
+            return (
+              <div className="project-group-block" key={key}>
+                <div className="project-group-heading">
+                  <h3>{label}</h3>
+                  <p>{description}</p>
+                </div>
+                <div className="project-grid">
+                  {groupProjects.map((project, index) => (
+                    <article
+                      className="project-card"
+                      key={project.title}
+                      onClick={() => setSelectedProject(project)}
+                      onMouseEnter={() => setCursor((current) => ({ ...current, label: 'VIEW' }))}
+                      onMouseLeave={() => setCursor((current) => ({ ...current, label: '' }))}
+                    >
+                      <div className={`project-art tint-${project.tint}`}>
+                        <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
+                        <span className="art-index">0{index + 1}</span>
+                        <span className="art-overlay" />
+                      </div>
+                      <div className="project-info">
+                        <div className="project-topline"><span>{project.category}</span><span>{String(index + 1).padStart(2, '0')} / {String(groupProjects.length).padStart(2, '0')}</span></div>
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
+                        <div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                        <div className="project-links">
+                          <a href={project.githubUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()} onMouseEnter={() => setCursor((current) => ({ ...current, label: 'GITHUB ↗' }))} onMouseLeave={() => setCursor((current) => ({ ...current, label: 'VIEW' }))}><Github size={15} /> GitHub</a>
+                          {project.liveDemoUrl && <a href={project.liveDemoUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}><ExternalLink size={15} /> Live Demo</a>}
+                          {project.demoVideoUrl && <a href={project.demoVideoUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}><Play size={14} /> Demo Video</a>}
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </section>
 
         <section id="contact" className="section-pad contact-section"><div className="contact-frame"><div><span className="section-number">05 / CONTACT</span><h2>Let's build something<br /><em>meaningful.</em></h2><p>I'm always interested in learning, building and taking on new software development challenges.</p><div className="contact-links"><a href="mailto:nandakalyan2002@gmail.com"><Mail size={18} /><span>Email me<small>nandakalyan2002@gmail.com</small></span><ArrowUpRight size={16} /></a>{socials.map(({ label, href, icon: Icon }) => <a href={href} target="_blank" rel="noreferrer" key={label}><Icon size={18} /><span>{label}<small>Open profile</small></span><ArrowUpRight size={16} /></a>)}</div></div><form onSubmit={handleSubmit}><label>Name<input value={formState.name} onChange={(e) => setFormState((s) => ({ ...s, name: e.target.value }))} placeholder="Your name" required /></label><label>Email<input type="email" value={formState.email} onChange={(e) => setFormState((s) => ({ ...s, email: e.target.value }))} placeholder="you@example.com" required /></label><label>Subject<input value={formState.subject} onChange={(e) => setFormState((s) => ({ ...s, subject: e.target.value }))} placeholder="How can we work together?" /></label><label>Message<textarea rows={4} value={formState.message} onChange={(e) => setFormState((s) => ({ ...s, message: e.target.value }))} placeholder="Tell me a little about your idea..." required /></label><button className="button button-primary" type="submit" disabled={formStatus === 'sending'}>{formStatus === 'sending' ? 'Sending...' : formStatus === 'success' ? 'Sent successfully!' : formStatus === 'error' ? 'Try again' : 'Send message'} {formStatus === 'success' ? <Check size={16} /> : <Send size={16} />}</button>{formStatus === 'error' && <p className="form-error">Something went wrong. Please try again or email me directly.</p>}{formStatus === 'success' && <p className="form-success">Message sent successfully!</p>}</form></div></section>
 
