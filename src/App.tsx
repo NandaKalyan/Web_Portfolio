@@ -29,6 +29,96 @@ const projects: Project[] = [
   { title: 'Weather Application', category: 'JavaScript', tags: ['JavaScript', 'OpenWeatherMap', 'API'], description: 'A responsive weather application providing real-time weather information for searched cities.', features: ['City search', 'Weather conditions and icons', 'Humidity and pressure details'], highlights: ['OpenWeatherMap API', 'Fetch API', 'Invalid-search feedback'], githubUrl: 'https://github.com/NandaKalyan/Simple_Weather_App', liveDemoUrl: 'https://nk-know-the-weather.netlify.app', tint: 'sky', mark: 'WA', image: '/assets/projects/weather.png', group: 'Mini' },
   { title: 'Flappy Bird Game', category: 'Java', tags: ['Java', 'Swing', 'OOP'], description: 'A Java Swing game implementing real-time loops, keyboard controls, gravity, collision detection and score tracking.', features: ['Keyboard controls', 'Random pipe generation', 'Restart and game-over states'], highlights: ['60 FPS game loop', 'Collision detection', 'Object-oriented programming'], githubUrl: 'https://github.com/NandaKalyan/Flappy_Bird_Game', tint: 'green', mark: 'FB', image: '/assets/projects/flappy-bird.jpg', group: 'Mini' },
   { title: 'Advanced Calculator', category: 'JavaScript', tags: ['HTML5', 'CSS3', 'JavaScript'], description: 'A responsive browser calculator supporting arithmetic operations, keyboard controls, input editing and error handling.', features: ['Keyboard input', 'Decimal calculations', 'Clear, delete and error handling'], highlights: ['Enter-to-calculate', 'Backspace and Escape controls', 'Responsive layout'], githubUrl: 'https://github.com/NandaKalyan/Simple-Calculator', liveDemoUrl: 'https://nk-simple-calci.netlify.app', tint: 'slate', mark: 'AC', image: '/assets/projects/calculator.png', group: 'Mini' },
+  {
+  title: 'Bad Guys',
+  category: 'React',
+  tags: ['React', 'TypeScript', 'Tailwind CSS'],
+  description: 'A cinematic full-screen interactive experience where the background video responds to the user’s cursor movement.',
+  features: [
+    'Cursor-controlled video scrubbing',
+    'Custom animated cursor',
+    'Full-screen responsive experience'
+  ],
+  highlights: [
+    'Cursor position controls video playback',
+    'Wolf head follows cursor direction',
+    'Minimal cinematic interface'
+  ],
+  githubUrl: '',
+  liveDemoUrl: 'https://badguys-studiopage.vercel.app/',
+  tint: 'slate',
+  mark: 'BG',
+  image: '/assets/projects/BadGuys.png',
+  group: 'Featured'
+},
+
+{
+  title: 'Nike Sneaker Experience',
+  category: 'React',
+  tags: ['React', 'TypeScript', 'Tailwind CSS'],
+  description: 'An interactive Nike sneaker showcase featuring a scroll-controlled cinematic animation that reveals the shoe layer by layer.',
+  features: [
+    'Scroll-controlled video animation',
+    'Smooth frame interpolation',
+    'Responsive cinematic layout'
+  ],
+  highlights: [
+    'Scroll-driven sneaker transformation',
+    'Smooth animated transitions',
+    'Custom cursor interaction'
+  ],
+  githubUrl: '',
+  liveDemoUrl: 'https://nike-sneaker-studiopage.vercel.app/',
+  tint: 'slate',
+  mark: 'NK',
+  image: '/assets/projects/Nike.png',
+  group: 'Featured'
+},
+
+{
+  title: 'Targaryen Realm',
+  category: 'React',
+  tags: ['React', 'TypeScript', 'Tailwind CSS'],
+  description: 'A cinematic House of the Dragon inspired interactive landing page featuring a cursor-driven image reveal and animated visual elements.',
+  features: [
+    'Cursor-based image reveal',
+    'Animated arc statistics',
+    'Responsive navigation and layout'
+  ],
+  highlights: [
+    'Interactive cursor reveal effect',
+    'Animated House statistics',
+    'Cinematic hero presentation'
+  ],
+  githubUrl: '',
+  liveDemoUrl: 'https://cursor-reveal-targarean.vercel.app/',
+  tint: 'slate',
+  mark: 'TG',
+  image: '/assets/projects/CursorMask.png',
+  group: 'Featured'
+},
+{
+  title: 'KLYN Retro Music Player',
+  category: 'React',
+  tags: ['React', 'TypeScript', 'Tailwind CSS'],
+  description: 'A modern retro-inspired music player that recreates the tactile experience of a vinyl turntable with interactive playback controls and album artwork.',
+  features: [
+    'Interactive vinyl record player',
+    'Real-time audio playback and seeking',
+    'Animated tonearm and track transitions'
+  ],
+  highlights: [
+    'Physics-inspired record rotation',
+    'Smooth album-art crossfade',
+    'Interactive tonearm needle drop'
+  ],
+  githubUrl: '',
+  liveDemoUrl: 'https://klyn-retro-music-player.vercel.app/',
+  tint: 'slate',
+  mark: 'KLYN',
+  image: '/assets/projects/KLYN_RetroPlayer.png',
+  group: 'Featured'
+},
 ];
 
 const skillGroups = [
