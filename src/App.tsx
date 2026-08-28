@@ -44,7 +44,7 @@ const projects: Project[] = [
     'Wolf head follows cursor direction',
     'Minimal cinematic interface'
   ],
-  githubUrl: '',
+  githubUrl: 'https://github.com/NandaKalyan/BadGuys',
   liveDemoUrl: 'https://badguys-studiopage.vercel.app/',
   tint: 'slate',
   mark: 'BG',
@@ -67,7 +67,7 @@ const projects: Project[] = [
     'Smooth animated transitions',
     'Custom cursor interaction'
   ],
-  githubUrl: '',
+  githubUrl: 'https://github.com/NandaKalyan/NikeSneaker',
   liveDemoUrl: 'https://nike-sneaker-studiopage.vercel.app/',
   tint: 'slate',
   mark: 'NK',
@@ -90,7 +90,7 @@ const projects: Project[] = [
     'Animated House statistics',
     'Cinematic hero presentation'
   ],
-  githubUrl: '',
+  githubUrl: 'https://github.com/NandaKalyan/Cursor_Reveal_Targarean',
   liveDemoUrl: 'https://cursor-reveal-targarean.vercel.app/',
   tint: 'slate',
   mark: 'TG',
@@ -112,7 +112,7 @@ const projects: Project[] = [
     'Smooth album-art crossfade',
     'Interactive tonearm needle drop'
   ],
-  githubUrl: '',
+  githubUrl: 'https://github.com/NandaKalyan/KLYN_Retro_MusicPlayer',
   liveDemoUrl: 'https://klyn-retro-music-player.vercel.app/',
   tint: 'slate',
   mark: 'KLYN',
