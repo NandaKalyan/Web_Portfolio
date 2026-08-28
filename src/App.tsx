@@ -206,30 +206,10 @@ function App() {
       </header>
 
       <main>
-        <section id="home" className="hero">
-  <div className="hero-content reveal">
-    <div className="eyebrow"><span className="status-dot" /> AVAILABLE FOR OPPORTUNITIES</div>
-    <p className="hero-kicker">SOFTWARE DEVELOPER <span> / 01</span></p>
-    <h1>Building software.<br /><em>Solving real</em> problems.</h1>
-    <p className="hero-intro">I'm a Software Developer with a strong foundation in Java Full Stack Development, frontend engineering and practical application development.</p>
-    <div className="hero-actions">
-      <button className="button button-primary" onClick={() => scrollTo('projects')}>View my projects <ArrowDownRight size={17} /></button>
-      <a className="button button-quiet" href="/NandaKalyan_ATS.pdf" download="Nanda-Kalyan-Resume.pdf">Download resume <ArrowUpRight size={17} /></a>
-    </div>
-    <div className="hero-socials">
-      {socials.map(({ label, href, icon: Icon }) => <a key={label} href={href} target="_blank" rel="noreferrer"><Icon size={16} /> {label}</a>)}
-    </div>
-  </div>
-
-  <div className="hero-media reveal reveal-delay">
-    <img src="/assets/images/Professional_Profile copy.png" alt="Nanda Kalyan" />
-  </div>
-
-  <div className="hero-stats-bar">
-    {[['10+', 'Years of Experience'], ['200+', 'Projects Completed'], ['150+', 'DSA Problems Solved'], ['8.94', 'CGPA']].map(([value, label]) => (
-      <div className="hero-stat" key={label}><strong>{value}</strong><p>{label}</p></div>
-    ))}
-  </div>
+        <section id="home" className="hero section-pad">
+          <div className="hero-copy reveal"><div className="eyebrow"><span className="status-dot" /> AVAILABLE FOR OPPORTUNITIES</div><p className="hero-kicker">SOFTWARE DEVELOPER <span> / 01</span></p><h1>Building software.<br /><em>Solving real</em> problems.</h1><p className="hero-intro">I'm a Software Developer with a strong foundation in Java Full Stack Development, frontend engineering and practical application development.</p><div className="hero-actions"><button className="button button-primary" onClick={() => scrollTo('projects')}>View my projects <ArrowDownRight size={17} /></button><a className="button button-quiet" href="/NandaKalyan_ATS.pdf" download="Nanda-Kalyan-Resume.pdf">Download resume <ArrowUpRight size={17} /></a></div><div className="hero-socials">{socials.map(({ label, href, icon: Icon }) => <a key={label} href={href} target="_blank" rel="noreferrer"><Icon size={16} /> {label}</a>)}</div></div>
+          <div className="hero-visual reveal reveal-delay"><div className="portrait-orbit orbit-one" /><div className="portrait-orbit orbit-two" /><div className="portrait-card"><div className="portrait-placeholder"><img src="/assets/images/Professional_Profile copy.png" alt="Nanda Kalyan" /><div className="portrait-caption">PROFILE<br /><strong>01 — 01</strong></div></div><div className="portrait-label"><span>BASED IN INDIA</span><span>JAVA / REACT / SQL</span></div></div><div className="floating-note"><Sparkles size={15} /><span>Turning ideas<br />into products.</span></div></div>
+         <div className="hero-stats stats"><div className="stat-grid">{[['10+', 'Years of Experience'], ['200+', 'Projects Completed'], ['150+', 'DSA Problems Solved'], ['8.94', 'CGPA']].map(([value, label], index) => <div className="stat" key={label}><span className="stat-index">0{index + 1}</span><strong>{value}</strong><p>{label}</p></div>)}</div></div>
 </section>
         <section id="about" className="section-pad about-section"><div className="section-heading"><span className="section-number">01 / ABOUT</span><h2>Curious by nature.<br /><em>Precise by craft.</em></h2></div><div className="about-grid"><div className="about-lead"><p className="large-copy">I am a Software Developer with a strong foundation in Java Full Stack Development and hands-on experience building practical applications across web, mobile, AI-assisted tools, APIs and database-driven systems.</p><p>I enjoy transforming ideas into functional software through problem solving, clean development practices and continuous learning.</p><button className="text-link" onClick={() => scrollTo('journey')}>Explore my journey <ChevronRight size={16} /></button></div><div className="strength-grid">{[['Problem solving', '01', 'Strong interest in logical thinking and DSA.'], ['Full stack development', '02', 'Experience working across frontend, backend and databases.'], ['Java development', '03', 'Strong foundation in Java and Java-based web development.'], ['API integration', '04', 'Hands-on experience consuming REST APIs and external services.']].map(([title, number, text]) => <div className="strength" key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p><ArrowUpRight size={17} /></div>)}</div></div></section>
 
