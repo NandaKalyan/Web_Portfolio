@@ -40,10 +40,10 @@ const skillGroups = [
   ['Other Technologies', 'REST APIs', 'GitHub API', 'OAuth', 'Speech Recognition', 'Text-to-Speech', 'Android SDK', 'AI-assisted development', 'Software Testing'],
 ];
 
-const groupSections: { key: ProjectGroup; label: string; description: string }[] = [
-  { key: 'Main', label: 'Core Projects', description: 'Full-stack builds and larger applications with real end-to-end functionality.' },
-  { key: 'Mini', label: 'Micro Projects', description: 'Smaller, focused builds — single-purpose tools and utilities.' },
-  { key: 'Spark', label: 'Spark Projects', description: 'Things I built purely out of curiosity or inspiration.' },
+const groupSections: { key: ProjectGroup; kicker: string; label: string; description: string }[] = [
+  { key: 'Main', kicker: '01 / CORE', label: 'Core Projects', description: 'Full-stack builds and larger applications with real end-to-end functionality.' },
+  { key: 'Mini', kicker: '02 / MICRO', label: 'Micro Projects', description: 'Smaller, focused builds — single-purpose tools and utilities.' },
+  { key: 'Spark', kicker: '03 / SPARK', label: 'Spark Projects', description: 'Things I built purely out of curiosity or inspiration.' },
 ];
 
 function App() {
@@ -136,12 +136,13 @@ function App() {
           </div>
           <div className="filter-row">{filters.map((filter) => <button key={filter} className={activeFilter === filter ? 'active' : ''} onClick={() => setActiveFilter(filter)}>{filter}</button>)}</div>
 
-          {groupSections.map(({ key, label, description }) => {
+          {groupSections.map(({ key, kicker, label, description }) => {
             const groupProjects = groupedByFilter[key];
             if (groupProjects.length === 0) return null;
             return (
               <div className="project-group-block" key={key}>
                 <div className="project-group-heading">
+                  <span className="project-group-kicker">{kicker}</span>
                   <h3>{label}</h3>
                   <p>{description}</p>
                 </div>
