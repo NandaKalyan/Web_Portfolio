@@ -235,7 +235,7 @@ function App() {
 
           <div className="hero-visual reveal reveal-delay">
             <div className="portrait-frame">
-              <img src="/assets/images/Profile.png" alt="Nanda Kalyan" />
+              <img src="/assets/Profile.png" alt="Nanda Kalyan" />
               <div className="portrait-gradient" />
               <span className="portrait-tag"><Sparkles size={12} /> Based in India</span>
             </div>
