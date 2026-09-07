@@ -143,8 +143,8 @@ const heroHighlights = [
 ];
 
 const heroStats: [string, string][] = [
-  ['10+', 'Years of Experience'],
-  ['200+', 'Projects Completed'],
+  // ['10+', 'Years of Experience'],
+  ['10+', 'Projects Completed'],
   ['150+', 'DSA Problems Solved'],
   ['8.94', 'CGPA'],
 ];
