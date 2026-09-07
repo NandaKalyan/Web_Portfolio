@@ -471,7 +471,7 @@ h2 {
 /* =========================================================
    SOCIAL LINKS
    ========================================================= */
-
+/* 
 .hero-socials {
   display: flex;
   gap: 21px;
@@ -490,8 +490,84 @@ h2 {
 .hero-socials a:hover,
 .footer-socials a:hover {
   color: var(--gold);
+} */
+/* =========================================================
+   HERO SOCIAL BUTTONS
+   ========================================================= */
+
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
+.hero-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .03em;
+
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.025);
+
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    box-shadow .2s ease;
+}
+
+
+/* GitHub */
+.hero-socials a:nth-child(1) {
+  color: #c084fc;
+  border-color: rgba(192,132,252,.35);
+}
+
+.hero-socials a:nth-child(1):hover {
+  color: #ffffff;
+  background: rgba(139,92,246,.15);
+  border-color: #a855f7;
+  box-shadow: 0 6px 20px rgba(139,92,246,.15);
+  transform: translateY(-2px);
+}
+
+
+/* LinkedIn */
+.hero-socials a:nth-child(2) {
+  color: #38a7ff;
+  border-color: rgba(56,167,255,.35);
+}
+
+.hero-socials a:nth-child(2):hover {
+  color: #ffffff;
+  background: rgba(10,102,194,.15);
+  border-color: #0a66c2;
+  box-shadow: 0 6px 20px rgba(10,102,194,.18);
+  transform: translateY(-2px);
+}
+
+
+/* LeetCode */
+.hero-socials a:nth-child(3) {
+  color: #7ee787;
+  border-color: rgba(126,231,135,.35);
+}
+
+.hero-socials a:nth-child(3):hover {
+  color: #ffffff;
+  background: rgba(46,160,67,.15);
+  border-color: #2ea043;
+  box-shadow: 0 6px 20px rgba(46,160,67,.16);
+  transform: translateY(-2px);
+}
 
 /* =========================================================
    HERO IMAGE
