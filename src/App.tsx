@@ -223,7 +223,8 @@ function App() {
           <div className="hero-copy reveal">
             <div className="eyebrow"><span className="status-dot" /> AVAILABLE FOR OPPORTUNITIES</div>
             <p className="hero-kicker">SOFTWARE DEVELOPER <span> / 01</span></p>
-            <h1>Building software.<br /><em>Solving real</em> problems.</h1>
+            {/* <h1>Building software.<br/><em>Solving real</em> problems.</h1> */}
+            <h1>Software Developer crafting scalable, user-focused applications with Java, React, and modern web technologies.</em> problems.</h1>
             <p className="hero-intro">I'm a Software Developer with a strong foundation in Java Full Stack Development, frontend engineering and practical application development.</p>
             <div className="hero-actions">
               <button className="button button-primary" onClick={() => scrollTo('projects')}>View my projects <ArrowDownRight size={17} /></button>
