@@ -344,7 +344,7 @@ h2 {
  * Slightly increased font size.
  */
 h1 {
-  font-size: clamp(46px, 3vw, 44px);
+  font-size: clamp(40px, 4.4vw, 68px);
   max-width: 620px;
   margin-bottom: 26px;
 
