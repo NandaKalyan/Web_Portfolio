@@ -93,7 +93,7 @@ button {
 .project-group-heading h3 {
   margin: 0 0 8px;
   font-family: 'Manrope', sans-serif;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: -.03em;
   color: #f0eee9;
@@ -335,7 +335,7 @@ p {
 
 h1,
 h2 {
-  letter-spacing: -.065em;
+  letter-spacing: -.035em;
 }
 
 
@@ -344,9 +344,9 @@ h2 {
  * Slightly increased font size.
  */
 h1 {
-  font-size: clamp(44px, 5.4vw, 76px);
-  max-width: 810px;
-  margin-bottom: 25px;
+  font-size: clamp(30px, 3vw, 44px);
+  max-width: 560px;
+  margin-bottom: 24px;
 
   /*
    * More vertical space between:
@@ -354,7 +354,7 @@ h1 {
    * Solving real
    * problems.
    */
-  line-height: 1.08;
+  line-height: 1.12;
 }
 
 h1 em,
@@ -364,8 +364,9 @@ h2 em {
 }
 
 h2 {
-  font-size: clamp(46px, 6vw, 78px);
-  margin: 18px 0 0;
+  font-size: clamp(32px, 3.8vw, 54px);
+  margin: 16px 0 0;
+  line-height: 1.1;
 }
 
 
@@ -919,7 +920,7 @@ h2 {
 
 .timeline-content h3 {
   margin: 0 0 7px;
-  font-size: 19px;
+  font-size: 18px;
 }
 
 .timeline-content p {
@@ -948,8 +949,8 @@ h2 {
 
 .dsa-panel strong {
   display: block;
-  font-size: 75px;
-  letter-spacing: -.09em;
+  font-size: 60px;
+  letter-spacing: -.07em;
   line-height: 1;
   margin-top: 23px;
 }
@@ -1407,7 +1408,7 @@ footer {
 
 .loader-mark {
   color: var(--gold);
-  font-size: 54px;
+  font-size: 44px;
   font-weight: 800;
   letter-spacing: -.1em;
 }
@@ -1532,7 +1533,7 @@ footer {
 }
 
 .modal-copy h2 {
-  font-size: 44px;
+  font-size: 34px;
   margin: 16px 0 16px;
 }
 
@@ -1640,6 +1641,15 @@ footer {
 
   .section-pad {
     width: min(100% - 42px, 680px);
+  }
+
+  h1 {
+    font-size: clamp(32px, 7vw, 44px);
+    max-width: none;
+  }
+
+  h2 {
+    font-size: clamp(30px, 6.5vw, 44px);
   }
 
   .nav-wrap {
@@ -1754,8 +1764,8 @@ footer {
   /* Smaller mobile heading */
 
   .hero h1 {
-    font-size: 37px;
-    line-height: 1.08;
+    font-size: 30px;
+    line-height: 1.12;
   }
 
   .hero-intro {
@@ -1850,7 +1860,7 @@ footer {
   }
 
   .dsa-panel strong {
-    font-size: 60px;
+    font-size: 48px;
   }
 
   .resume-cta {
@@ -1879,6 +1889,6 @@ footer {
   }
 
   .modal-copy h2 {
-    font-size: 35px;
+    font-size: 28px;
   }
 }
