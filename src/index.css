@@ -667,9 +667,7 @@ h2 {
 
 
 /* =========================================================
-   HERO IMAGE — LARGE BACKGROUND PORTRAIT (DESKTOP)
-   The portrait is pulled out of the grid and sits behind
-   the text; hero copy + highlights overlay on top of it.
+   HERO IMAGE — PORTRAIT IN MIDDLE COLUMN (DESKTOP)
    ========================================================= */
 
 @media (min-width: 901px) {
@@ -677,19 +675,24 @@ h2 {
   .hero {
     position: relative;
     isolation: isolate;
-    overflow: hidden;
   }
 
+  /*
+   * Portrait sits in the middle grid column (the empty space
+   * between the left text and the right highlights).
+   * Negative side margins let it grow slightly past the column
+   * so the shoulders stay fully visible.
+   */
   .hero-visual {
-    position: absolute;
-    right: 2vw;
-    bottom: 0;
+    position: relative;
+    grid-column: 2;
+    align-self: end;
     z-index: 0;
 
-    width: min(66vw, 1080px);
+    width: auto;
     height: auto;
     min-height: 0;
-    margin: 0;
+    margin-inline: -12%;
 
     pointer-events: none;
   }
@@ -700,14 +703,13 @@ h2 {
     aspect-ratio: 1 / 1;
   }
 
-  /* Darken the left edge so the heading stays readable over the shoulder */
+  /* Gentle fade on the left edge so it blends with the text side */
   .portrait-gradient {
     background:
       linear-gradient(
         90deg,
-        rgba(8,8,8,.88) 0%,
-        rgba(8,8,8,.55) 22%,
-        rgba(8,8,8,0) 45%
+        rgba(8,8,8,.55) 0%,
+        rgba(8,8,8,0) 22%
       ),
       linear-gradient(
         180deg,
@@ -718,11 +720,11 @@ h2 {
 
   .portrait-tag {
     left: auto;
-    right: 18%;
-    bottom: 28px;
+    right: 12%;
+    bottom: 24px;
   }
 
-  /* Content layers above the image */
+  /* Content layers stay above the image */
   .hero-copy,
   .hero-highlights {
     position: relative;
@@ -738,10 +740,6 @@ h2 {
   .highlight-item h4,
   .highlight-item p {
     text-shadow: 0 2px 18px rgba(0,0,0,.65);
-  }
-
-  .highlight-item {
-    border-bottom-color: rgba(255,255,255,.18);
   }
 }
 
