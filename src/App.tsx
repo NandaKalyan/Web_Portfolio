@@ -228,7 +228,7 @@ function App() {
             <p className="hero-intro">I'm a Software Developer with a strong foundation in Java Full Stack Development, frontend engineering and practical application development.</p>
             <div className="hero-actions">
               <button className="button button-primary" onClick={() => scrollTo('projects')}>View my projects <ArrowDownRight size={17} /></button>
-              <a className="button button-quiet" href="/NandaKalyan_ATS.pdf" download="Nanda-Kalyan-Resume.pdf">Download resume <ArrowUpRight size={17} /></a>
+              <a className="button button-quiet" href="/NandaKalyan_Updated.pdf" download="Nanda-Kalyan-Resume.pdf">Download resume <ArrowUpRight size={17} /></a>
             </div>
             <div className="hero-mini-stats">{heroStats.map(([value, label]) => <div className="mini-stat" key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
             <div className="hero-socials">{socials.map(({ label, href, icon: Icon }) => <a key={label} href={href} target="_blank" rel="noreferrer"><Icon size={16} /> {label}</a>)}</div>
