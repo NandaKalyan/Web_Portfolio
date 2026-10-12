@@ -692,7 +692,7 @@ h2 {
     width: auto;
     height: auto;
     min-height: 0;
-    margin-inline: -26%;
+    margin-inline: -12%;
 
     pointer-events: none;
   }
@@ -741,6 +741,84 @@ h2 {
   .highlight-item p {
     text-shadow: 0 2px 18px rgba(0,0,0,.65);
   }
+}
+
+
+/* =========================================================
+   HERO SCROLL DOWN CUE
+   ========================================================= */
+
+.hero {
+  position: relative;
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 14px;
+  background: transparent;
+  border: 0;
+  color: #a9a79e;
+  font: 9px 'DM Mono', monospace;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  transition: color .2s;
+  animation: cue-fade-in .8s 1.2s both;
+}
+
+.scroll-cue:hover {
+  color: var(--gold);
+}
+
+.scroll-cue-mouse {
+  position: relative;
+  width: 20px;
+  height: 32px;
+  border: 1px solid rgba(212,175,55,.6);
+  border-radius: 12px;
+}
+
+.scroll-cue-wheel {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 2px;
+  height: 6px;
+  margin-left: -1px;
+  border-radius: 2px;
+  background: var(--gold);
+  animation: cue-wheel 1.6s ease-in-out infinite;
+}
+
+.scroll-cue-arrow {
+  color: var(--gold);
+  animation: cue-arrow 1.6s ease-in-out infinite;
+}
+
+@keyframes cue-wheel {
+  0%   { opacity: 0; transform: translateY(0); }
+  30%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+
+@keyframes cue-arrow {
+  0%, 100% { opacity: .35; transform: translateY(-3px); }
+  50%      { opacity: 1;   transform: translateY(3px); }
+}
+
+@keyframes cue-fade-in {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
 }
 
 
@@ -1823,6 +1901,11 @@ footer {
   }
 
   .custom-cursor {
+    display: none;
+  }
+
+  /* Stacked layout is already scrollable; hide the cue */
+  .scroll-cue {
     display: none;
   }
 }
