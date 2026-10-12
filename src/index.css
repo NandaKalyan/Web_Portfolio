@@ -667,6 +667,86 @@ h2 {
 
 
 /* =========================================================
+   HERO IMAGE — LARGE BACKGROUND PORTRAIT (DESKTOP)
+   The portrait is pulled out of the grid and sits behind
+   the text; hero copy + highlights overlay on top of it.
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .hero-visual {
+    position: absolute;
+    right: 2vw;
+    bottom: 0;
+    z-index: 0;
+
+    width: min(66vw, 1080px);
+    height: auto;
+    min-height: 0;
+    margin: 0;
+
+    pointer-events: none;
+  }
+
+  .portrait-frame {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Darken the left edge so the heading stays readable over the shoulder */
+  .portrait-gradient {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8,8,8,.88) 0%,
+        rgba(8,8,8,.55) 22%,
+        rgba(8,8,8,0) 45%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(8,8,8,0) 75%,
+        rgba(8,8,8,.45) 100%
+      );
+  }
+
+  .portrait-tag {
+    left: auto;
+    right: 18%;
+    bottom: 28px;
+  }
+
+  /* Content layers above the image */
+  .hero-copy,
+  .hero-highlights {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-highlights {
+    grid-column: 3;
+  }
+
+  .hero-copy h1,
+  .hero-copy .hero-intro,
+  .highlight-item h4,
+  .highlight-item p {
+    text-shadow: 0 2px 18px rgba(0,0,0,.65);
+  }
+
+  .highlight-item {
+    border-bottom-color: rgba(255,255,255,.18);
+  }
+}
+
+
+/* =========================================================
    HERO HIGHLIGHTS
    ========================================================= */
 
