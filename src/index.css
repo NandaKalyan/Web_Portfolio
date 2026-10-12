@@ -1846,8 +1846,8 @@ footer {
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding-top: 100px;
-    padding-bottom: 60px;
+    padding-top: 96px;
+    padding-bottom: 40px;
   }
 
   .hero-visual {
@@ -1874,6 +1874,10 @@ footer {
     flex: 1 1 220px;
     border-bottom: 0;
     padding-bottom: 0;
+  }
+
+  .hero-highlights {
+    align-self: start;
   }
 
   .about-grid,
@@ -1975,6 +1979,17 @@ footer {
 
   .hero-highlights {
     flex-direction: column;
+    gap: 18px;
+    margin-top: 8px;
+  }
+
+  /* In a column, flex-basis controls height - reset it so items hug their content */
+  .highlight-item {
+    flex: 0 0 auto;
+  }
+
+  .highlight-item p {
+    max-width: none;
   }
 
   .about-section,
@@ -1982,8 +1997,8 @@ footer {
   .journey-section,
   .projects-section,
   .contact-section {
-    padding-top: 100px;
-    padding-bottom: 80px;
+    padding-top: 64px;
+    padding-bottom: 56px;
   }
 
   .about-lead .large-copy {
@@ -2030,8 +2045,8 @@ footer {
   }
 
   .resume-cta {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 56px;
+    padding-bottom: 56px;
   }
 
   .footer-main {
